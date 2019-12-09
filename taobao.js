@@ -15,8 +15,8 @@ function openActPage() {
 	waitForActivity("com.taobao.search.searchdoor.SearchDoorActivity");
 	sleep(1000);
 	setText(actName);
-	if (text("搜索").exists())
-		text("搜索").findOne().click();
+	text("搜索").findOne().click();
+	sleep(3000);
 }
 function openMissionPage() {
 	click(1215, 2245);
@@ -31,15 +31,15 @@ function signin() {
 }
 
 function run() {
-	openActPage();
 	toastLog("进入活动页面")
-	sleep(3000);
+	openActPage();
 
-	openMissionPage();
+
 	toastLog("进入任务页面")
+	openMissionPage();
 
+	toastLog("签到")
 	signin();
-	toastLog("签到成功")
 
 	var tbMain = 'com.taobao.tao.TBMainActivity'
 	for (let index = 0; index < tasks.length; index++) {
